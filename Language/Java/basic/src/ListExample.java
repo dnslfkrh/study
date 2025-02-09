@@ -9,7 +9,7 @@ public class ListExample {
     names.add("Alice");
     names.add("Bob");
     names.add("Charlie");
-    
+
     // 특정 위치에 요소 삽입
     names.add(1, "David");
 

@@ -5,5 +5,11 @@ public class DataTypes {
     char grade = 'A'; // 16비트 크기의 단일 문자를 저장하는 기본 타입
     boolean isAdult = true; // true 또는 false 값을 저장하는 기본 타입
     String name = "mark"; // 문자의 연속된 시퀀스를 저장하는 참조 타입
+
+    System.out.println("Age: " + age);
+    System.out.println("Pi: " + pi);
+    System.out.println("Grade: " + grade);
+    System.out.println("Is adult: " + isAdult);
+    System.out.println("Name: " + name);
   }
 }
