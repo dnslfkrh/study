@@ -1,4 +1,4 @@
-### 무료 버전 (커뮤니티) 설치하기
+## 무료 버전 (커뮤니티) 설치하기
 https://dev.mysql.com/downloads/windows/installer/8.0.html
 
 1. 설치된 파일 실행
@@ -43,7 +43,7 @@ https://dev.mysql.com/downloads/windows/installer/8.0.html
 
 21. 실습 MySQL 설치 완료
 
-### 설치 확인
+## 설치 확인
 
 1. 윈도우 시작 버튼 > 모두 > MySQL 폴더 > workbench 실행
 
