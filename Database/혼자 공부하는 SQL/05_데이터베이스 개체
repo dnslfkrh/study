@@ -1,0 +1,104 @@
+## 데이터베이스 개체
+
+데이터베이스 안에 들어있을 수 있는 하나의 오브젝트 개체
+
+- 테이블
+- 인덱스
+- 뷰
+- 스토어드 프로시저
+
+## 인덱스
+
+빠른 데이터 조회를 도와주는 개채, 실무 환경에서는 데이터의 개수가 많아지기 때문에 결과가 나오는 시간이 늘어난다.
+
+책 뒷부분에 수록되는 "찾아보기" 같은 개념.
+
+필수 개체는 아니지만, 속도가 중요한 실무 환경에서는 거의 무조건 사용된다.
+
+## 인덱스 예제
+
+기존 `members` 테이블에서 원하는 유저를 찾는 sql 
+
+```sql
+SELECT * FROM members WHERE member_name = '이';
+```
+
+테이블의 모든 데이터를 조회해서 조건에 맞는 유저를 검색함, 유저의 수가 많을수록 조회 시간이 늘어남
+
+`members` 인덱스 생성
+
+```sql
+CREATE INDEX idx_member_name ON members(member_name);
+```
+`idx_member_name`는 인덱스 상의 컬럼
+
+다시 조회
+
+```sql
+SELECT * FROM MEMBERS WHERE member_name = '이';
+```
+
+## 뷰
+
+가상의 테이블
+
+## 뷰 예시
+
+윈도우에서 `바로가기` 아이콘
+
+사용자가 뷰에 접근하지만 실제 테이블에 접근한 것과 같은 결과가 나옴
+
+`사용자 <-> 뷰 <-> 테이블`
+
+## 뷰 에졔
+
+기존 테이블에 접근하는 sql
+
+```sql
+SELECT * FROM members;
+```
+
+뷰 생성
+
+```sql
+CREATE VIEW members_view
+AS
+  SELECT * FROM members;
+```
+
+뷰 접근(사용)
+
+```sql
+SELECT * FROM members_view;
+```
+
+## 뷰 사용 목적
+
+- 보안
+- 원하는 부분만 가져올 수 있음
+- 복잡한 쿼리 단순화, 재사용
+- 데이터베이스 단순화
+
+## 스토어드 프로시저
+SQL 안에서 일반적인 프로그래밍 언어처럼 코딩을 할 수 있게 해줌, MySQL에서 제공하는 기능
+
+## 스토어드 프로시저 예제
+
+`SELECT * FROM members;`를 myProc이라는 이름의 스토어드 프로시저로 만드는 sql
+
+```sql
+DELIMITER //
+CREATE PROCEDURE myProc()
+BEGIN
+	SELECT * FROM members;
+END //
+DELIMITER ;
+```
+
+만들었던 myProc을 실행하는 sql
+
+```sql
+CALL myProc();
+```
+
+myProc을 실행하면 지정했던 `SELECT * FROM members;`가 실행됨
