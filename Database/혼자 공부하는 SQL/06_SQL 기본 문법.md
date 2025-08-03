@@ -64,3 +64,4 @@ SELECT * FROM member
 SELECT * FROM member
   WHERE mem_name LIKE '__핑크';
 ```
+
